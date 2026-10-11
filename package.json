@@ -1,0 +1,20 @@
+{
+  "name": "disinformation-education-game",
+  "version": "1.0.0",
+  "description": "An educational game simulating disinformation spread and lateral reading practice during a virus outbreak.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "education",
+    "disinformation",
+    "policy",
+    "hackathon",
+    "lateral-reading"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disinformation Education Game</title>
+  <meta name="description" content="An educational game to practice lateral reading and evaluate credibility.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="notion-theme">
+
+  <!-- HOME ------------------------------------------------------------ -->
+  <section id="screen-home" class="screen">
+    <div class="column home">
+      <div class="home-header">
+        <h1 class="logo">Disinformation Education Game</h1>
+        <p class="lead">Practice lateral reading: verify claims against sources.</p>
+      </div>
+
+      <!-- SIFT METHOD FEATURE GRID -->
+      <div class="features-section">
+        <div class="section-title-box">
+          <h2 class="section-heading">Follow SIFT to evaluate digital information</h2>
+        </div>
+        <div class="how-grid how-grid-4">
+          <div class="how-card">
+            <div class="how-icon">🛑</div>
+            <h3>Stop</h3>
+            <p>Pause when encountering surprising, emotional, or viral claims before sharing.</p>
+          </div>
+          <div class="how-card">
+            <div class="how-icon">🔍</div>
+            <h3>Investigate</h3>
+            <p>Check the author, account creation date, bio, and checkmark authenticity.</p>
+          </div>
+          <div class="how-card">
+            <div class="how-icon">📰</div>
+            <h3>Find Better</h3>
+            <p>Search for trusted, independent reporting or expert consensus across sources.</p>
+          </div>
+          <div class="how-card">
+            <div class="how-icon">🔗</div>
+            <h3>Trace Claims</h3>
+            <p>Track quotes, statistics, and media back to their original primary context.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETUP OPTIONS: DIFFICULTY, TRACK & CONTENT FORMAT -->
+      <div class="setup-card">
+        <div class="setup-group">
+          <label class="setup-label">Difficulty</label>
+          <div id="home-diff-selector" class="selector-pills">
+            <button type="button" class="pill-btn" data-level="easy">🟢 Easy</button>
+            <button type="button" class="pill-btn active" data-level="medium">🟡 Medium</button>
+            <button type="button" class="pill-btn" data-level="hard">🔴 Hard</button>
+          </div>
+        </div>
+        <div class="setup-group">
+          <label class="setup-label">Track</label>
+          <div id="home-track-selector" class="selector-pills">
+            <button type="button" class="pill-btn" data-track="highschool">🏫 High School</button>
+            <button type="button" class="pill-btn" data-track="youngadults">🎓 Young Adults</button>
+            <button type="button" class="pill-btn active" data-track="health">🏥 Health</button>
+            <button type="button" class="pill-btn" data-track="defense">🛡️ Defense</button>
+            <button type="button" class="pill-btn" data-track="seniors">👵 Seniors</button>
+          </div>
+        </div>
+        <div class="setup-group">
+          <label class="setup-label">Content Format</label>
+          <div id="home-format-selector" class="selector-pills">
+            <button type="button" class="pill-btn active" data-format="social">📱 Social Media Feed</button>
+            <button type="button" class="pill-btn" data-format="news">📰 News Sites</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="case-list" class="case-list"></div>
+    </div>
+  </section>
+
+  <!-- GAME / INVESTIGATION DESK --------------------------------------- -->
+  <section id="screen-game" class="screen" hidden>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <button type="button" id="quit-btn" class="btn btn-sm btn-outline">&larr; Exit</button>
+          <span class="brand-title">Disinformation Game</span>
+        </div>
+        <div class="topbar-center"></div>
+        <div class="topbar-right">
+          <span id="phase-label" class="topbar-phase"></span>
+          <span id="progress" class="progress"></span>
+          <button type="button" id="timer" class="timer" title="Click to hide/show timer" aria-label="Timer"></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="desk-container">
+      <!-- LEFT COLUMN: CONTENT FEED & NEWS -->
+      <div class="feed-col">
+        <div class="panel-header">
+          <span class="panel-title">Content Feed</span>
+        </div>
+        <div id="news"></div>
+        <div id="feed" class="feed"></div>
+        <div id="controls" class="controls"></div>
+      </div>
+
+      <!-- RIGHT COLUMN: QUESTION EVALUATION PANEL -->
+      <div class="side-col">
+        <div class="panel-header">
+          <span class="panel-title">Evaluation Desk</span>
+        </div>
+        <div id="side-panel" class="side-panel"></div>
+      </div>
+    </div>
+
+    <button type="button" id="jump-pill" class="jump-pill" hidden>&darr; Decision Waiting</button>
+  </section>
+
+  <!-- RESULTS / CASE FILE DEBRIEF ------------------------------------ -->
+  <section id="screen-end" class="screen" hidden>
+    <div id="results" class="column results"></div>
+  </section>
+
+  <dialog id="profile-dialog" aria-labelledby="profile-name"></dialog>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/cases/outbreak.js"></script>
+  <script src="js/cases/cases.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
